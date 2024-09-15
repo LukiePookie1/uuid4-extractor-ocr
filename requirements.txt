@@ -1,0 +1,8 @@
+#Install python and tesseract in addition
+pytesseract==0.3.10
+Pillow==10.1.0
+requests==2.32.3
+pytest==8.3.2
+python-dotenv==1.0.1
+opencv-python==4.8.1.78
+numpy<2
