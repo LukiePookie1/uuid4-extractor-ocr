@@ -1,11 +1,11 @@
 # OCR UUID4 Extractor
 
-Python script that uses Tesseract OCR and OpenCV to extract UUID4(s) from image or video files. It is designed to be used in a video game match ID validation system.
+Python script that uses EasyOCR and to extract UUID4(s) from image or video files. It is designed to be used in a video game match ID validation system.
 
 ## Dependencies
 
 - Python 3.12
-- Tesseract OCR
+- EasyOCR
 
 ## Installation
 
@@ -18,7 +18,11 @@ git clone https://github.com/luke-rappa/ocr-uuid4-extractor.git
 2. Install the required packages:
 
 ```bash
-brew install tesseract
+brew install python
+```
+
+```bash
+brew install ffmpeg
 ```
 
 ```bash
