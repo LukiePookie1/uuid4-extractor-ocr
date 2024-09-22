@@ -26,7 +26,7 @@ brew install ffmpeg
 ```
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 3. Configure the API endpoint:
