@@ -10,7 +10,7 @@ class UUID4Finder:
         potential_uuid4s = re.findall(UUID4_PATTERN, normalized_text)
         
         if not potential_uuid4s:
-            substitution_map = {'g': '9', 'o': '0', 'i': '1', 's': '5', 't': 'f', 'l': '1', 'S': '5'}
+            substitution_map = {'g': '9', 'o': '0', 'i': '1', 's': '5', 't': 'f', 'l': '1'}
             
             fixed_text = normalized_text
             for wrong_char, correct_char in substitution_map.items():
