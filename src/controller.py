@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Tuple
 import os
 from src.media_processor import MediaProcessor
 from src.uuid4_finder import UUID4Finder
@@ -23,12 +23,9 @@ class Controller:
         
         return uuid4s
 
-    def extract_verify_uuid4s(self, path: str, fps: int = 1) -> List[str]:
-        processor = MediaProcessor()
-        text = processor.uuid4_video(path, fps)
-        finder = UUID4Finder()
-        uuid4s = finder.find_uuid4(text)
+    def extract_verify_uuid4s(self, path: str, fps: int = 1) -> List[Tuple[str, bool]]:
+        uuid4s = self.extract_uuid4s(path, fps)
         validator = Validator()
         validated_uuid4s = validator.validate_match_ids(uuid4s)
-
+        
         return validated_uuid4s

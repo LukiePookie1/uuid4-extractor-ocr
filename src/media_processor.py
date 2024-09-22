@@ -7,8 +7,9 @@ import easyocr
 class MediaProcessor: 
     def __init__(self):
         self.temp_dir = tempfile.TemporaryDirectory()
+        self.reader = easyocr.Reader(['en'])
 
-    def uuid4_video(self, video_path: str, fps: int = 1) -> List[str]:
+    def uuid4_video(self, video_path: str, fps: int = 1) -> str:
         images = self.slice_video(video_path, fps)
         full_text = ""
         
@@ -18,10 +19,8 @@ class MediaProcessor:
             
         return full_text.strip()
 
-    def uuid4_image(self, image_path: str) -> List[str]:
-        text = self.detect_text(image_path)
-
-        return text
+    def uuid4_image(self, image_path: str) -> str:
+        return self.detect_text(image_path)
 
     #Helper functions
     def slice_video(self, video_path: str, fps: int = 1) -> List[str]:
@@ -38,17 +37,10 @@ class MediaProcessor:
                 frame_paths.append(os.path.join(self.temp_dir.name, file))
         return frame_paths
 
-    
     def detect_text(self, image_path: str) -> str:
-        reader = easyocr.Reader(['en'])
-
-        result = reader.readtext(image_path)   
-
-        #Only want text, not bounding boxes or confidence scores
+        result = self.reader.readtext(image_path)   
         text = [text for _, text, _ in result]
-        
-        return "".join(text)        
+        return " ".join(text)
 
     def __del__(self):
         self.temp_dir.cleanup()
-        
