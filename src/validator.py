@@ -28,5 +28,7 @@ class Validator:
                 validated_ids.append((match_id, False))
         return validated_ids
     
+    #Mistakes 6 for B, B for 6, e for 0, c for 0, c for d, 8 for 3, 4 for A
+    #There is a non-zero chance that a valid UUID4 is detected, but it is not a valid match ID.
     def substitute_common_errors(self, potential_id: str) -> str:
         return

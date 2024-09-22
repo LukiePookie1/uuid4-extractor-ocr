@@ -48,5 +48,5 @@ python src/cli.py <path> [fps] [validation]
 ```
 
 - `<path>` (`str`): Path to the input file. Supports .png, .jpg, .jpeg, and .mp4 files.
-- `[--fps]` (`int`, Optional): Frames per second to extract from video. Defaults to 1 if not provided. This argument is ignored for image files.
+- `[--fps]` (`int`, Optional): Frames per second to extract from video. Defaults to 1 if not provided. This argument is ignored for image files. If the UUID4 isn't detected in videos where it appears briefly, I recommend increasing the frame rate to 5 FPS.
 - `[--validation]` (Flag, Optional): Include this option to enable validation of the extracted UUID4(s) against the API. Defaults to `False` if not included. 
