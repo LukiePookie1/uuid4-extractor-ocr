@@ -3,7 +3,7 @@ from src.controller import Controller
 
 def main():
     parser = argparse.ArgumentParser(description="Extract UUID4(s) from image or video files.")
-    parser.add_argument("path", type=str, help="Path to the input file. Supports .png, .jpg, .jpeg, and .mp4 files.")
+    parser.add_argument("path", type=str, help="Path to the input file. Supports .png, .jpg, .jpeg, .mp4, .mov, and .avi files.")
     parser.add_argument("--fps", type=int, default=1, help="Frames per second to extract from video. Defaults to 1 if not provided. Ignored for image files.")
     parser.add_argument("--validation", action="store_true", help="Enable validation of the extracted UUID4(s) against the API.")
 
