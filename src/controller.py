@@ -21,6 +21,8 @@ class Controller:
         finder = UUID4Finder()
         uuid4s = finder.find_uuid4(text)
         
+        uuid4s = list(set(uuid4s))
+        
         return uuid4s
 
     def extract_verify_uuid4s(self, path: str, fps: int = 1) -> List[Tuple[str, bool]]:
@@ -28,4 +30,6 @@ class Controller:
         validator = Validator()
         validated_uuid4s = validator.validate_match_ids(uuid4s)
         
-        return validated_uuid4s
+        unique_validated_uuid4s = list({uuid: (uuid, is_valid) for uuid, is_valid in validated_uuid4s}.values())
+        
+        return unique_validated_uuid4s
