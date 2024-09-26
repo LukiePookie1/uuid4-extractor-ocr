@@ -5,6 +5,7 @@ Python script that uses EasyOCR to extract UUID4(s) from image or video files. I
 ## Dependencies
 
 - Python 3.12
+- FFmpeg
 - EasyOCR
 
 ## Installation
