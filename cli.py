@@ -1,4 +1,5 @@
 import argparse
+import json
 from src.controller import Controller
 
 def main():
@@ -13,12 +14,18 @@ def main():
 
     if args.validation:
         result = controller.extract_verify_uuid4s(args.path, args.fps)
-        for uuid4, is_valid in result:
-            print(f"{uuid4}: {'Valid match ID' if is_valid else 'Invalid match ID'}")
+        if result:
+            output = [{'uuid4': uuid4, 'is_valid': is_valid} for uuid4, is_valid in result]
+        else:
+            output = {'message': 'No UUID4 Found'}
     else:
         result = controller.extract_uuid4s(args.path, args.fps)
-        for uuid4 in result:
-            print(uuid4)
+        if result:
+            output = result
+        else:
+            output = {'message': 'No UUID4 Found'}
+
+    print(json.dumps(output))
 
 if __name__ == "__main__":
-    main()
+    main() 
