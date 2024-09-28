@@ -13,7 +13,7 @@ Python script that uses EasyOCR to extract UUID4(s) from image or video files. I
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/luke-rappa/ocr-uuid4-extractor.git
+git clone https://github.com/LukiePookie1/uuid4-extractor-ocr.git
 ```
 
 2. Install the required packages:
