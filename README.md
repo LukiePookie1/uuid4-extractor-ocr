@@ -2,12 +2,6 @@
 
 Python script that uses EasyOCR to extract UUID4(s) from image or video files. It is designed to be used in a video game match ID validation system.
 
-## Dependencies
-
-- Python 3.12
-- FFmpeg
-- EasyOCR
-
 ## Installation
 
 1. Clone the repository:
@@ -45,7 +39,7 @@ pip3 install -r requirements.txt
 To extract UUID4(s) from an image or video, run the following command:
 
 ```bash
-python src/cli.py <path> [fps] [validation]
+python src/main.py <path> [fps] [validation]
 ```
 
 - `<path>` (`str`): Path to the input file. Supports .png, .jpg, .jpeg, .mp4, .mov, and .avi files.
