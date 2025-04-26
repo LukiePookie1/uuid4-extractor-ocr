@@ -4,3 +4,5 @@ python-dotenv==1.0.1
 numpy<2
 ffmpy==0.4.0
 easyocr==1.7.1
+mypy==1.15.0
+pylint==3.3.6
