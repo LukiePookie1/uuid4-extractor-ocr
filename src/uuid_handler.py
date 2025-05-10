@@ -1,5 +1,6 @@
 import os
 import re
+from typing import List, Tuple
 
 import requests
 from dotenv import load_dotenv
@@ -15,7 +16,7 @@ API_KEY: str = os.getenv("API_KEY", "")
 
 
 class UUID4Finder:
-    def find_uuid4(self, text: str) -> list[str]:
+    def find_uuid4(self, text: str) -> List[str]:
         normalized_text = re.sub(r"\s", "", text).lower()
         potential_uuid4s = re.findall(UUID4_PATTERN, normalized_text)
 
@@ -70,8 +71,8 @@ class UUID4Finder:
 
 
 class Validator:
-    def validate_match_ids(self, potential_ids: list[str]) -> list[tuple[str, bool]]:
-        validated_ids: list[tuple[str, bool]] = []
+    def validate_match_ids(self, potential_ids: List[str]) -> List[Tuple[str, bool]]:
+        validated_ids: List[Tuple[str, bool]] = []
         for match_id in potential_ids:
             if self.is_valid_match_id(match_id):
                 validated_ids.append((match_id, True))
