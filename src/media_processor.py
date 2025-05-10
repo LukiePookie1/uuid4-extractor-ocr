@@ -1,8 +1,15 @@
 import os
-from typing import List
-from ffmpy import FFmpeg
 import tempfile
+import warnings
+from typing import List
+
 import easyocr
+from ffmpy import FFmpeg
+
+# Suppress the pin_memory warnings
+warnings.filterwarnings(
+    "ignore", message="'pin_memory' argument is set as true but no accelerator is found"
+)
 
 
 class MediaProcessor:

@@ -1,8 +1,9 @@
-import re
 import os
+import re
 from typing import List, Tuple
-from dotenv import load_dotenv
+
 import requests
+from dotenv import load_dotenv
 
 UUID4_PATTERN = r"[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}"
 UUID4_PATTERN_FORGIVING = (
@@ -115,4 +116,4 @@ class Validator:
             if char in substitutions:
                 for sub_char in substitutions[char]:
                     corrected_id = potential_id[:i] + sub_char + potential_id[i + 1 :]
-                    yield corrected_id 
+                    yield corrected_id

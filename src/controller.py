@@ -1,5 +1,6 @@
-from typing import List, Tuple
 import os
+from typing import List, Tuple
+
 from src.media_processor import MediaProcessor
 from src.uuid_handler import UUID4Finder, Validator
 
