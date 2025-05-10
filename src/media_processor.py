@@ -1,9 +1,12 @@
 import os
-from typing import List
-from ffmpy import FFmpeg
 import tempfile
-import easyocr
+import warnings
 
+import easyocr
+from ffmpy import FFmpeg
+
+# Suppress the pin_memory warnings when user is using CPU
+warnings.filterwarnings("ignore", message="'pin_memory' argument is set as true but no accelerator is found")
 
 class MediaProcessor:
     def __init__(self):
@@ -23,7 +26,7 @@ class MediaProcessor:
     def uuid4_image(self, image_path: str) -> str:
         return self.detect_text(image_path)
 
-    def slice_video(self, video_path: str, fps: int = 1) -> List[str]:
+    def slice_video(self, video_path: str, fps: int = 1) -> list[str]:
         ff = FFmpeg(
             inputs={video_path: None},
             outputs={

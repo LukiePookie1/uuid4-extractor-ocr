@@ -1,16 +1,10 @@
 # OCR UUID4 Extractor
 
-Python script that uses EasyOCR to extract UUID4(s) from image or video files. It is designed to be used in a video game match ID validation system.
+Python script that uses EasyOCR to extract UUID4(s) from image or video files. It is designed to be used in a video game match ID validation system. The system will first tries to use CUDA or MPS, will fallback to CPU.
 
 ## Installation
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/LukiePookie1/uuid4-extractor-ocr.git
-```
-
-2. Install the required packages:
+### Install the required packages:
 
 ```bash
 brew install python

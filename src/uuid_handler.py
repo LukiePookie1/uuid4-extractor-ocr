@@ -1,8 +1,8 @@
-import re
 import os
-from typing import List, Tuple
-from dotenv import load_dotenv
+import re
+
 import requests
+from dotenv import load_dotenv
 
 UUID4_PATTERN = r"[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}"
 UUID4_PATTERN_FORGIVING = (
@@ -15,7 +15,7 @@ API_KEY: str = os.getenv("API_KEY", "")
 
 
 class UUID4Finder:
-    def find_uuid4(self, text: str) -> List[str]:
+    def find_uuid4(self, text: str) -> list[str]:
         normalized_text = re.sub(r"\s", "", text).lower()
         potential_uuid4s = re.findall(UUID4_PATTERN, normalized_text)
 
@@ -70,8 +70,8 @@ class UUID4Finder:
 
 
 class Validator:
-    def validate_match_ids(self, potential_ids: List[str]) -> List[Tuple[str, bool]]:
-        validated_ids: List[Tuple[str, bool]] = []
+    def validate_match_ids(self, potential_ids: list[str]) -> list[tuple[str, bool]]:
+        validated_ids: list[tuple[str, bool]] = []
         for match_id in potential_ids:
             if self.is_valid_match_id(match_id):
                 validated_ids.append((match_id, True))
@@ -115,4 +115,4 @@ class Validator:
             if char in substitutions:
                 for sub_char in substitutions[char]:
                     corrected_id = potential_id[:i] + sub_char + potential_id[i + 1 :]
-                    yield corrected_id 
+                    yield corrected_id
